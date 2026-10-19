@@ -141,12 +141,20 @@ class ClassroomPackLLMResult(BaseModel):
     annotations: list[AnnotationEvent] = []
 
 
+class ClassroomGrammarTable(BaseModel):
+    slug: str
+    title: str
+    headers: list[str]
+    rows: list[list[str]]
+
+
 class ClassroomSessionResponse(BaseModel):
     status: Literal["ready", "generating", "fallback"]
     mode: Literal["lecture", "reading"]
     pack: ClassroomPack | None = None
     fallback_deck: ClassroomDeck | None = None
     preparing: bool = False
+    grammar_tables: list[ClassroomGrammarTable] = []
 
 
 class ClassroomPackStatusResponse(BaseModel):

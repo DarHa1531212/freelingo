@@ -188,9 +188,22 @@ function session(
     pack: pack(),
     fallback_deck: deck(),
     preparing: false,
+    grammar_tables: [],
     ...overrides,
   }
 }
+
+const conjugationTables = [
+  {
+    slug: 'preterito-indefinido-regular',
+    title: 'Pretérito indefinido regular',
+    headers: ['Persona', '-ar (hablar)', '-er (comer)'],
+    rows: [
+      ['yo', 'hablé', 'comí'],
+      ['tú', 'hablaste', 'comiste'],
+    ],
+  },
+]
 
 afterEach(() => {
   cleanup()
@@ -254,6 +267,16 @@ describe('ClassroomPresenter', () => {
       'data-text',
       'Primero la raíz, luego la terminación.'
     )
+  })
+
+  it('renders conjugation tables from grammar refs', () => {
+    render(
+      <ClassroomPresenter deck={deck()} grammarTables={conjugationTables} />
+    )
+    expect(screen.getByText('Conjugation tables')).toBeInTheDocument()
+    expect(screen.getByText('Pretérito indefinido regular')).toBeInTheDocument()
+    expect(screen.getByText('hablé')).toBeInTheDocument()
+    expect(screen.getByText('comiste')).toBeInTheDocument()
   })
 
   it('reading fallback advances beats and repeats without clarify', () => {

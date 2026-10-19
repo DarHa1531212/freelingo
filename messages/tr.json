@@ -2009,6 +2009,7 @@
     "retry": "Tekrar dene",
     "backToLesson": "Derse dön",
     "clarifyError": "Şu anda yardım kullanılamıyor. Tekrar deneyin veya ders sayfasından devam edin.",
-    "emptyDeck": "Bu ders için henüz sınıf slaytı yok."
+    "emptyDeck": "Bu ders için henüz sınıf slaytı yok.",
+    "conjugationTables": "Çekim tabloları"
   }
 }

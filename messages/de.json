@@ -2009,6 +2009,7 @@
     "retry": "Erneut versuchen",
     "backToLesson": "Zurück zur Lektion",
     "clarifyError": "Die Hilfe ist derzeit nicht verfügbar. Versuche es erneut oder fahre auf der Lektionsseite fort.",
-    "emptyDeck": "Für diese Lektion gibt es noch keine Klassenzimmer-Folien."
+    "emptyDeck": "Für diese Lektion gibt es noch keine Klassenzimmer-Folien.",
+    "conjugationTables": "Konjugationstabellen"
   }
 }

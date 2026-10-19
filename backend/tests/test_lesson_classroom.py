@@ -15,7 +15,9 @@ from app.schemas.classroom import (
 from app.services.lesson_classroom import (
     GENERATOR_VERSION,
     build_classroom_deck,
+    build_classroom_grammar_tables,
     chunk_text,
+    extract_markdown_tables,
     find_beat,
     get_stored_pack,
     lesson_content_hash,
@@ -157,6 +159,46 @@ def test_build_classroom_deck_tolerates_missing_content():
     assert [beat.kind for beat in deck.beats] == ["intro", "closing"]
 
 
+def test_extract_markdown_tables_parses_conjugation_grid():
+    text = (
+        "Intro text.\n\n"
+        "| Persona | -ar (hablar) | -er (comer) |\n"
+        "|--------|-------------|-------------|\n"
+        "| yo | hablé | comí |\n"
+        "| tú | hablaste | comiste |\n\n"
+        "More text."
+    )
+    tables = extract_markdown_tables(text)
+    assert len(tables) == 1
+    headers, rows = tables[0]
+    assert headers == ["Persona", "-ar (hablar)", "-er (comer)"]
+    assert rows[0] == ["yo", "hablé", "comí"]
+    assert rows[1][0] == "tú"
+
+
+def test_build_classroom_grammar_tables_from_grammar_refs():
+    lesson = SimpleNamespace(
+        id=1,
+        study_plan_id=2,
+        title="Pasado",
+        lesson_type="grammar",
+        cefr_level="A2",
+        content={
+            "grammar_refs": ["preterito-indefinido-regular", "marcadores-temporales"],
+            "explanation": {"text": "x", "key_points": [], "examples": []},
+        },
+    )
+    tables = build_classroom_grammar_tables(lesson, target_language="es-ES")
+    assert any(table.slug == "preterito-indefinido-regular" for table in tables)
+    regular = next(
+        table for table in tables if table.slug == "preterito-indefinido-regular"
+    )
+    assert "Persona" in regular.headers or "yo" in {
+        cell for row in regular.rows for cell in row
+    }
+    assert any("hablé" in cell for row in regular.rows for cell in row)
+
+
 def test_annotation_event_accepts_bullets_alias():
     event = AnnotationEvent(
         id="a1",
@@ -265,6 +307,69 @@ async def test_classroom_deck_other_user_forbidden(client, test_user, db_session
     _, headers = test_user
     response = await client.get(f"/api/lessons/{lesson.id}/classroom/deck", headers=headers)
     assert response.status_code == 404
+
+
+@pytest.mark.asyncio
+async def test_classroom_deck_includes_grammar_tables_from_refs(
+    client, test_user, db_session
+):
+    from app.models.lesson import Lesson
+    from app.schemas.exercise_generation import ExerciseGenerationState
+    from tests.conftest import make_study_plan
+
+    user, headers = test_user
+    plan = await make_study_plan(
+        db_session,
+        user_id=user.id,
+        target_language="es-ES",
+        cefr_level="A2",
+        goals=["grammar"],
+        duration_weeks=4,
+        days_per_week=4,
+        current_unit="",
+        generated_plan={},
+        is_active=True,
+    )
+    lesson = Lesson(
+        study_plan_id=plan.id,
+        title="Pasado simple",
+        lesson_type="grammar",
+        cefr_level="A2",
+        week_number=1,
+        day_number=1,
+        content={
+            "grammar_refs": ["preterito-indefinido-regular"],
+            "explanation": {"text": "Pasado.", "key_points": [], "examples": []},
+        },
+    )
+    db_session.add(lesson)
+    await db_session.commit()
+    await db_session.refresh(lesson)
+
+    with (
+        patch(
+            "app.routers.lesson_classroom.get_generation_state",
+            new=AsyncMock(
+                return_value=ExerciseGenerationState(generation_status="generating")
+            ),
+        ),
+        patch(
+            "app.routers.lesson_classroom.GenerationLease.acquire",
+            new=AsyncMock(return_value=None),
+        ),
+    ):
+        response = await client.get(
+            f"/api/lessons/{lesson.id}/classroom/deck", headers=headers
+        )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["grammar_tables"]
+    assert data["grammar_tables"][0]["slug"] == "preterito-indefinido-regular"
+    assert any(
+        "hablé" in cell
+        for row in data["grammar_tables"][0]["rows"]
+        for cell in row
+    )
 
 
 @pytest.mark.asyncio

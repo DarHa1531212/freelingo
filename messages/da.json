@@ -2009,6 +2009,7 @@
     "retry": "Prøv igen",
     "backToLesson": "Tilbage til lektionen",
     "clarifyError": "Hjælp er ikke tilgængelig lige nu. Prøv igen, eller fortsæt på lektionssiden.",
-    "emptyDeck": "Der er endnu ingen slides i klasseværelset til denne lektion."
+    "emptyDeck": "Der er endnu ingen slides i klasseværelset til denne lektion.",
+    "conjugationTables": "Bøjningstabeller"
   }
 }

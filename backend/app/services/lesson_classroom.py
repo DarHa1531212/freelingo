@@ -9,12 +9,14 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.data.grammar import get_grammar_topic
 from app.models.lesson import Lesson
 from app.models.lesson_classroom_pack import LessonClassroomPack
 from app.schemas.classroom import (
     AnnotationEvent,
     ClassroomBeat,
     ClassroomDeck,
+    ClassroomGrammarTable,
     ClassroomPack,
     ClassroomPackLLMResult,
     LectureSegment,
@@ -81,6 +83,78 @@ def _as_str_list(value: Any) -> list[str]:
 def lesson_content_hash(content: Any) -> str:
     payload = json.dumps(content if content is not None else {}, sort_keys=True, default=str)
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _parse_markdown_row(line: str) -> list[str]:
+    cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+    return cells
+
+
+def _is_markdown_separator(cells: list[str]) -> bool:
+    if not cells:
+        return False
+    return all(re.fullmatch(r":?-{3,}:?", cell.replace(" ", "")) is not None for cell in cells)
+
+
+def extract_markdown_tables(text: str) -> list[tuple[list[str], list[list[str]]]]:
+    tables: list[tuple[list[str], list[list[str]]]] = []
+    lines = text.splitlines()
+    index = 0
+    while index < len(lines):
+        if not lines[index].strip().startswith("|"):
+            index += 1
+            continue
+        block: list[str] = []
+        while index < len(lines) and lines[index].strip().startswith("|"):
+            block.append(lines[index].strip())
+            index += 1
+        parsed = [_parse_markdown_row(line) for line in block]
+        parsed = [row for row in parsed if row and not _is_markdown_separator(row)]
+        if len(parsed) < 2:
+            continue
+        headers = parsed[0]
+        rows = [row for row in parsed[1:] if any(cell.strip() for cell in row)]
+        if not rows:
+            continue
+        width = len(headers)
+        normalized = [row[:width] + [""] * max(0, width - len(row)) for row in rows]
+        tables.append((headers, normalized))
+    return tables
+
+
+def lesson_grammar_refs(content: Any) -> list[str]:
+    data = _as_dict(content)
+    refs = data.get("grammar_refs")
+    if isinstance(refs, list):
+        return [item.strip() for item in refs if isinstance(item, str) and item.strip()]
+    return []
+
+
+def build_classroom_grammar_tables(
+    lesson: Lesson,
+    *,
+    target_language: str,
+) -> list[ClassroomGrammarTable]:
+    tables: list[ClassroomGrammarTable] = []
+    seen: set[tuple[str, tuple[str, ...]]] = set()
+    for slug in lesson_grammar_refs(lesson.content):
+        topic = get_grammar_topic(slug, target_language)
+        if topic is None:
+            continue
+        for headers, rows in extract_markdown_tables(topic.explanation):
+            key = (slug, tuple(headers))
+            if key in seen:
+                continue
+            seen.add(key)
+            tables.append(
+                ClassroomGrammarTable(
+                    slug=slug,
+                    title=topic.title,
+                    headers=headers,
+                    rows=rows,
+                )
+            )
+    return tables
 
 
 def build_classroom_deck(

@@ -2009,6 +2009,7 @@
     "retry": "Försök igen",
     "backToLesson": "Tillbaka till lektionen",
     "clarifyError": "Hjälpen är inte tillgänglig just nu. Försök igen eller fortsätt på lektionssidan.",
-    "emptyDeck": "Den här lektionen har ännu inga bilder i klassrumsläget."
+    "emptyDeck": "Den här lektionen har ännu inga bilder i klassrumsläget.",
+    "conjugationTables": "Böjningstabeller"
   }
 }

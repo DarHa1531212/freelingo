@@ -82,12 +82,20 @@ export interface ClassroomPack {
   annotations: AnnotationEvent[]
 }
 
+export interface ClassroomGrammarTable {
+  slug: string
+  title: string
+  headers: string[]
+  rows: string[][]
+}
+
 export interface ClassroomSessionResponse {
   status: 'ready' | 'generating' | 'fallback'
   mode: 'lecture' | 'reading'
   pack: ClassroomPack | null
   fallback_deck: ClassroomDeck | null
   preparing: boolean
+  grammar_tables: ClassroomGrammarTable[]
 }
 
 export interface ClassroomPackStatusResponse {

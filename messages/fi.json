@@ -2009,6 +2009,7 @@
     "retry": "Yritä uudelleen",
     "backToLesson": "Takaisin oppitunnille",
     "clarifyError": "Apua ei ole juuri nyt saatavilla. Yritä uudelleen tai jatka oppitunnin sivulla.",
-    "emptyDeck": "Tällä oppitunnilla ei ole vielä luokkahuoneen dioja."
+    "emptyDeck": "Tällä oppitunnilla ei ole vielä luokkahuoneen dioja.",
+    "conjugationTables": "Taivutustaulukot"
   }
 }

@@ -25,6 +25,7 @@ from app.services.exercise_generation import GenerationLease, get_generation_sta
 from app.services.language_helpers import get_language_name
 from app.services.lesson_classroom import (
     build_classroom_deck,
+    build_classroom_grammar_tables,
     find_beat,
     find_segment,
     find_slide,
@@ -107,6 +108,9 @@ async def get_classroom_deck(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Lesson not found")
 
     fallback = build_classroom_deck(lesson, target_language=plan.target_language)
+    grammar_tables = build_classroom_grammar_tables(
+        lesson, target_language=plan.target_language
+    )
     pack = await get_stored_pack(db, lesson, target_language=plan.target_language)
     if pack is not None:
         return ClassroomSessionResponse(
@@ -115,6 +119,7 @@ async def get_classroom_deck(
             pack=pack,
             fallback_deck=fallback,
             preparing=False,
+            grammar_tables=grammar_tables,
         )
 
     generation = await get_generation_state(redis, _lock_key(lesson_id))
@@ -131,6 +136,7 @@ async def get_classroom_deck(
             pack=None,
             fallback_deck=fallback,
             preparing=preparing,
+            grammar_tables=grammar_tables,
         )
     return ClassroomSessionResponse(
         status="generating",
@@ -138,6 +144,7 @@ async def get_classroom_deck(
         pack=None,
         fallback_deck=fallback,
         preparing=True,
+        grammar_tables=grammar_tables,
     )
 
 

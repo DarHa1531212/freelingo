@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { AudioPlayer } from '@/components/ui/AudioPlayer'
 import { apiFetch } from '@/lib/api'
+import { GrammarTablesPanel } from './GrammarTablesPanel'
 import { HelpPanel } from './HelpPanel'
 import { WhiteboardBoard } from './WhiteboardBoard'
 import type {
@@ -13,6 +14,7 @@ import type {
   ClassroomClarifyAction,
   ClassroomClarifyResponse,
   ClassroomDeck,
+  ClassroomGrammarTable,
   ClassroomPack,
   LectureSegment,
   SlideFrame,
@@ -67,10 +69,12 @@ export function ClassroomPresenter({
   pack,
   deck,
   preparing = false,
+  grammarTables = [],
 }: {
   pack?: ClassroomPack | null
   deck?: ClassroomDeck | null
   preparing?: boolean
+  grammarTables?: ClassroomGrammarTable[]
 }) {
   const t = useTranslations('classroom')
   const locale = useLocale()
@@ -398,6 +402,11 @@ export function ClassroomPresenter({
         kindLabel={kindLabel}
         annotations={boardAnnotations}
         helpText={helpText}
+        targetLanguage={targetLanguage}
+      />
+
+      <GrammarTablesPanel
+        tables={grammarTables}
         targetLanguage={targetLanguage}
       />
 

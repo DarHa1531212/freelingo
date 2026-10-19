@@ -2009,6 +2009,7 @@
     "retry": "Réessayer",
     "backToLesson": "Retour à la leçon",
     "clarifyError": "L'aide n'est pas disponible pour le moment. Réessayez ou continuez sur la page de la leçon.",
-    "emptyDeck": "Cette leçon n'a pas encore de diapositives pour le mode classe."
+    "emptyDeck": "Cette leçon n'a pas encore de diapositives pour le mode classe.",
+    "conjugationTables": "Tableaux de conjugaison"
   }
 }

@@ -148,6 +148,7 @@ export default function LessonClassroomPage() {
       pack={activePack}
       deck={activePack ? null : session.fallback_deck}
       preparing={preparing}
+      grammarTables={session.grammar_tables ?? []}
     />
   )
 }
