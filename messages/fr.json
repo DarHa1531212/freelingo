@@ -1963,5 +1963,52 @@
     "label": "Maintenance",
     "title": "En maintenance",
     "description": "Cette section est temporairement indisponible pour cause de maintenance. Veuillez réessayer plus tard."
+  },
+  "classroom": {
+    "entry": "Classe avec Lingu",
+    "label": "Classe",
+    "lectureLabel": "Cours",
+    "progress": "Étape {current} sur {total}",
+    "exit": "Quitter la classe",
+    "narrationHint": "Écoutez, puis continuez quand vous le souhaitez.",
+    "lectureHint": "Lancez le cours, mettez en pause ou passez d’une partie à l’autre.",
+    "playLecture": "Lancer le cours",
+    "pause": "Pause",
+    "preparing": "Préparation du cours complet… Vous pouvez suivre la version lecture en attendant.",
+    "helpTitle": "Je ne comprends pas",
+    "helpNote": "Lingu vous explique",
+    "repeat": "Répéter",
+    "actions": {
+      "rephrase": "Reformuler",
+      "more_examples": "Plus d'exemples"
+    },
+    "kinds": {
+      "intro": "Introduction",
+      "explanation": "Explication",
+      "key_point": "Point clé",
+      "example": "Exemple",
+      "vocabulary": "Vocabulaire",
+      "closing": "Prêt"
+    },
+    "segmentKinds": {
+      "hook": "Ouverture",
+      "concept": "Concept",
+      "example_walkthrough": "Exemple",
+      "contrast": "Contraste",
+      "vocab_spotlight": "Vocabulaire",
+      "cfu": "Vérification",
+      "summary": "Résumé",
+      "handoff": "Prêt"
+    },
+    "margin": "Marge",
+    "marginEmpty": "Les notes apparaissent ici pendant que Lingu enseigne.",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "toExercises": "Continuer vers les exercices",
+    "loadError": "Impossible d'ouvrir le mode classe.",
+    "retry": "Réessayer",
+    "backToLesson": "Retour à la leçon",
+    "clarifyError": "L'aide n'est pas disponible pour le moment. Réessayez ou continuez sur la page de la leçon.",
+    "emptyDeck": "Cette leçon n'a pas encore de diapositives pour le mode classe."
   }
 }

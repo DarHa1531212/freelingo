@@ -1,12 +1,15 @@
 """Persistent, shared cache for localized dashboard tour narration."""
 
+from __future__ import annotations
+
 import asyncio
-import fcntl
 import hashlib
 import json
 import os
+import sys
 import tempfile
 from pathlib import Path
+from typing import BinaryIO
 
 from app.core.config import settings
 from app.services.tts_service import KokoroTTSService, OpenAITTSService
@@ -14,6 +17,34 @@ from app.services.tts_service import KokoroTTSService, OpenAITTSService
 OPENAI_VOICES = frozenset(
     {"alloy", "ash", "coral", "echo", "fable", "nova", "onyx", "sage", "shimmer"}
 )
+
+
+def _lock_exclusive(lock: BinaryIO) -> None:
+    if sys.platform == "win32":
+        import msvcrt
+
+        lock.seek(0)
+        if lock.read(1) == b"":
+            lock.write(b"\0")
+            lock.flush()
+        lock.seek(0)
+        msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+        return
+    import fcntl
+
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+
+
+def _unlock(lock: BinaryIO) -> None:
+    if sys.platform == "win32":
+        import msvcrt
+
+        lock.seek(0)
+        msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
+        return
+    import fcntl
+
+    fcntl.flock(lock, fcntl.LOCK_UN)
 
 
 async def get_tour_audio(
@@ -48,15 +79,13 @@ async def get_tour_audio(
     if cached():
         return path
 
-    # The shared audio volume also shares this lock across Uvicorn workers.
-    # Nonblocking acquisition keeps provider calls and lock waits cancellable.
     async with asyncio.timeout(60):
         with (directory / f"{key}.lock").open("a+b") as lock:
             while True:
                 try:
-                    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    _lock_exclusive(lock)
                     break
-                except BlockingIOError:
+                except OSError:
                     await asyncio.sleep(0.1)
             try:
                 if cached():
@@ -76,5 +105,5 @@ async def get_tour_audio(
                     if temporary is not None:
                         temporary.unlink(missing_ok=True)
             finally:
-                fcntl.flock(lock, fcntl.LOCK_UN)
+                _unlock(lock)
     return path

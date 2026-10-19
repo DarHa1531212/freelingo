@@ -22,6 +22,9 @@ interface AudioPlayerProps {
   audioUrl?: string
   audioMethod?: 'GET' | 'POST'
   onStateChange?: (state: PlayerState) => void
+  onEnded?: () => void
+  onDuration?: (seconds: number) => void
+  autoPlay?: boolean
   timeoutMs?: number
   icon?: boolean
   listenLabel?: string
@@ -49,6 +52,9 @@ export function AudioPlayer({
   audioUrl,
   audioMethod = audioUrl ? 'GET' : 'POST',
   onStateChange,
+  onEnded,
+  onDuration,
+  autoPlay = false,
   timeoutMs = TTS_TIMEOUT_MS,
   icon = false,
   listenLabel,
@@ -59,8 +65,19 @@ export function AudioPlayer({
   const urlRef = useRef<string | null>(null)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const recoveryRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const autoPlayStartedRef = useRef(false)
+  const onEndedRef = useRef(onEnded)
+  const onDurationRef = useRef(onDuration)
   const sessionVersion = useAuthStore((s) => s.sessionVersion)
   const t = useTranslations('audioPlayer')
+
+  useEffect(() => {
+    onEndedRef.current = onEnded
+  }, [onEnded])
+
+  useEffect(() => {
+    onDurationRef.current = onDuration
+  }, [onDuration])
 
   // Resolve voice: explicit prop > user localStorage preference > backend default
   const resolvedVoice = voice ?? storedVoice()
@@ -78,6 +95,7 @@ export function AudioPlayer({
 
   useEffect(() => {
     setState('idle')
+    autoPlayStartedRef.current = false
     return () => {
       controllerRef.current?.abort()
       controllerRef.current = null
@@ -138,28 +156,35 @@ export function AudioPlayer({
       const t0 = performance.now()
 
       const fetchStart = performance.now()
-      const res = await apiFetch(
-        audioUrl ?? '/api/tts',
-        audioMethod === 'GET'
-          ? {
-              cache: 'no-store',
-              signal: controller.signal,
-            }
-          : {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'X-TTS-Trace-ID': traceId,
-              },
-              body: JSON.stringify({
-                text,
-                voice: resolvedVoice,
-                study_plan_id: studyPlanId,
-                conversation_id: conversationId,
-              }),
-              signal: controller.signal,
-            }
-      )
+      const absoluteAudio =
+        typeof audioUrl === 'string' &&
+        (audioUrl.startsWith('blob:') ||
+          audioUrl.startsWith('http://') ||
+          audioUrl.startsWith('https://'))
+      const res = absoluteAudio
+        ? await fetch(audioUrl, { cache: 'no-store', signal: controller.signal })
+        : await apiFetch(
+            audioUrl ?? '/api/tts',
+            audioMethod === 'GET'
+              ? {
+                  cache: 'no-store',
+                  signal: controller.signal,
+                }
+              : {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'X-TTS-Trace-ID': traceId,
+                  },
+                  body: JSON.stringify({
+                    text,
+                    voice: resolvedVoice,
+                    study_plan_id: studyPlanId,
+                    conversation_id: conversationId,
+                  }),
+                  signal: controller.signal,
+                }
+          )
       const fetchMs = performance.now() - fetchStart
       if (!res.ok) throw new Error(`TTS error ${res.status}`)
 
@@ -184,14 +209,23 @@ export function AudioPlayer({
           return
         releaseAudio()
         setState('idle')
+        onEndedRef.current?.()
       }
       audio.onerror = showError
+      audio.onloadedmetadata = () => {
+        if (Number.isFinite(audio.duration) && audio.duration > 0) {
+          onDurationRef.current?.(audio.duration)
+        }
+      }
 
       const playStart = performance.now()
       await audio.play()
       if (controller.signal.aborted || controllerRef.current !== controller)
         return
       if (audioRef.current !== audio) return
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        onDurationRef.current?.(audio.duration)
+      }
       setState('playing')
       if (analyticsPath === '/phrasebook')
         trackBrowserEvent('phrasebook_audio_played', {
@@ -242,6 +276,26 @@ export function AudioPlayer({
       showError()
     }
   }
+
+  const playRef = useRef<() => void>(() => {})
+  playRef.current = () => {
+    void handleClick()
+  }
+
+  useEffect(() => {
+    if (!autoPlay || autoPlayStartedRef.current || !text.trim()) return
+    autoPlayStartedRef.current = true
+    playRef.current()
+  }, [
+    autoPlay,
+    text,
+    audioUrl,
+    audioMethod,
+    resolvedVoice,
+    studyPlanId,
+    conversationId,
+    sessionVersion,
+  ])
 
   const sizeClass =
     size === 'sm' ? 'px-2 py-1 text-fl-hint' : 'px-3 py-2 text-xs'

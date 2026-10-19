@@ -1963,5 +1963,52 @@
     "label": "Underhåll",
     "title": "Underhåll pågår",
     "description": "Det här avsnittet är tillfälligt otillgängligt medan vi utför underhåll. Kom tillbaka senare."
+  },
+  "classroom": {
+    "entry": "Klassrum med Lingu",
+    "label": "Klassrum",
+    "lectureLabel": "Lecture",
+    "progress": "Del {current} av {total}",
+    "exit": "Lämna klassrummet",
+    "narrationHint": "Lyssna och fortsätt när du är redo.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "Jag förstår inte",
+    "helpNote": "Lingu förklarar",
+    "repeat": "Upprepa",
+    "actions": {
+      "rephrase": "Formulera om",
+      "more_examples": "Fler exempel"
+    },
+    "kinds": {
+      "intro": "Introduktion",
+      "explanation": "Förklaring",
+      "key_point": "Huvudpunkt",
+      "example": "Exempel",
+      "vocabulary": "Ordförråd",
+      "closing": "Klar"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Anteckningar",
+    "marginEmpty": "Anteckningar visas här när Lingu skriver på tavlan.",
+    "previous": "Föregående",
+    "next": "Nästa",
+    "toExercises": "Fortsätt till övningarna",
+    "loadError": "Det gick inte att öppna klassrumsläget.",
+    "retry": "Försök igen",
+    "backToLesson": "Tillbaka till lektionen",
+    "clarifyError": "Hjälpen är inte tillgänglig just nu. Försök igen eller fortsätt på lektionssidan.",
+    "emptyDeck": "Den här lektionen har ännu inga bilder i klassrumsläget."
   }
 }

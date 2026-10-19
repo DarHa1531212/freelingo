@@ -1963,5 +1963,52 @@
     "label": "Konserwacja",
     "title": "W trakcie konserwacji",
     "description": "Ta sekcja jest tymczasowo niedostępna z powodu prac konserwacyjnych. Spróbuj ponownie później."
+  },
+  "classroom": {
+    "entry": "Klasa z Lingu",
+    "label": "Klasa",
+    "lectureLabel": "Lecture",
+    "progress": "Krok {current} z {total}",
+    "exit": "Opuść klasę",
+    "narrationHint": "Posłuchaj, a gdy będziesz gotowy, przejdź dalej.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "Nie rozumiem",
+    "helpNote": "Lingu wyjaśnia",
+    "repeat": "Powtórz",
+    "actions": {
+      "rephrase": "Powiedz inaczej",
+      "more_examples": "Więcej przykładów"
+    },
+    "kinds": {
+      "intro": "Wprowadzenie",
+      "explanation": "Wyjaśnienie",
+      "key_point": "Kluczowa kwestia",
+      "example": "Przykład",
+      "vocabulary": "Słownictwo",
+      "closing": "Gotowe"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Margines",
+    "marginEmpty": "Notatki pojawią się tutaj, gdy Lingu doda je na tablicy.",
+    "previous": "Poprzedni",
+    "next": "Następny",
+    "toExercises": "Przejdź do ćwiczeń",
+    "loadError": "Nie udało się otworzyć trybu klasy.",
+    "retry": "Spróbuj ponownie",
+    "backToLesson": "Wróć do lekcji",
+    "clarifyError": "Pomoc jest teraz niedostępna. Spróbuj ponownie lub przejdź do strony lekcji.",
+    "emptyDeck": "Ta lekcja nie ma jeszcze slajdów do trybu klasy."
   }
 }

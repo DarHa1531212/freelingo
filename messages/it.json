@@ -1963,5 +1963,52 @@
     "label": "Manutenzione",
     "title": "In manutenzione",
     "description": "Questa sezione è temporaneamente non disponibile per manutenzione. Riprova più tardi."
+  },
+  "classroom": {
+    "entry": "Aula con Lingu",
+    "label": "Aula",
+    "lectureLabel": "Lecture",
+    "progress": "Passaggio {current} di {total}",
+    "exit": "Esci dall'aula",
+    "narrationHint": "Ascolta, poi continua quando vuoi.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "Non capisco",
+    "helpNote": "Lingu te lo spiega",
+    "repeat": "Ripeti",
+    "actions": {
+      "rephrase": "Riformula",
+      "more_examples": "Altri esempi"
+    },
+    "kinds": {
+      "intro": "Introduzione",
+      "explanation": "Spiegazione",
+      "key_point": "Punto chiave",
+      "example": "Esempio",
+      "vocabulary": "Vocabolario",
+      "closing": "Pronto"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Margine",
+    "marginEmpty": "Le note compaiono qui quando Lingu aggiunge annotazioni.",
+    "previous": "Precedente",
+    "next": "Avanti",
+    "toExercises": "Continua con gli esercizi",
+    "loadError": "Impossibile aprire la modalità aula.",
+    "retry": "Riprova",
+    "backToLesson": "Torna alla lezione",
+    "clarifyError": "L'aiuto non è disponibile al momento. Riprova o continua dalla pagina della lezione.",
+    "emptyDeck": "Questa lezione non ha ancora diapositive per l'aula."
   }
 }

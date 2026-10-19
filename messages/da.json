@@ -1963,5 +1963,52 @@
     "label": "Vedligeholdelse",
     "title": "Vedligeholdelse i gang",
     "description": "Dette afsnit er midlertidigt utilgængeligt, mens vi udfører vedligeholdelse. Kom tilbage senere."
+  },
+  "classroom": {
+    "entry": "Klasseværelse med Lingu",
+    "label": "Klasseværelse",
+    "lectureLabel": "Lecture",
+    "progress": "Del {current} af {total}",
+    "exit": "Forlad klasseværelset",
+    "narrationHint": "Lyt, og fortsæt, når du er klar.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "Jeg forstår det ikke",
+    "helpNote": "Lingu forklarer",
+    "repeat": "Gentag",
+    "actions": {
+      "rephrase": "Formuler anderledes",
+      "more_examples": "Flere eksempler"
+    },
+    "kinds": {
+      "intro": "Introduktion",
+      "explanation": "Forklaring",
+      "key_point": "Hovedpunkt",
+      "example": "Eksempel",
+      "vocabulary": "Ordforråd",
+      "closing": "Klar"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Noter",
+    "marginEmpty": "Noter vises her, når Lingu skriver på tavlen.",
+    "previous": "Forrige",
+    "next": "Næste",
+    "toExercises": "Fortsæt til øvelserne",
+    "loadError": "Klasseværelset kunne ikke åbnes.",
+    "retry": "Prøv igen",
+    "backToLesson": "Tilbage til lektionen",
+    "clarifyError": "Hjælp er ikke tilgængelig lige nu. Prøv igen, eller fortsæt på lektionssiden.",
+    "emptyDeck": "Der er endnu ingen slides i klasseværelset til denne lektion."
   }
 }

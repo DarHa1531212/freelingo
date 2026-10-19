@@ -1963,5 +1963,52 @@
     "label": "Bakım",
     "title": "Bakımda",
     "description": "Bakım çalışması yaptığımız için bu bölüm geçici olarak kullanılamıyor. Lütfen daha sonra tekrar kontrol edin."
+  },
+  "classroom": {
+    "entry": "Lingu ile sınıf",
+    "label": "Sınıf",
+    "lectureLabel": "Lecture",
+    "progress": "Adım {current}/{total}",
+    "exit": "Sınıftan çık",
+    "narrationHint": "Dinleyin, hazır olduğunuzda devam edin.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "Anlamıyorum",
+    "helpNote": "Lingu açıklıyor",
+    "repeat": "Tekrarla",
+    "actions": {
+      "rephrase": "Başka şekilde anlat",
+      "more_examples": "Daha fazla örnek"
+    },
+    "kinds": {
+      "intro": "Giriş",
+      "explanation": "Açıklama",
+      "key_point": "Önemli nokta",
+      "example": "Örnek",
+      "vocabulary": "Kelime bilgisi",
+      "closing": "Hazır"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Kenar notları",
+    "marginEmpty": "Lingu not eklediğinde burada görünür.",
+    "previous": "Önceki",
+    "next": "Sonraki",
+    "toExercises": "Alıştırmalara devam et",
+    "loadError": "Sınıf modu açılamadı.",
+    "retry": "Tekrar dene",
+    "backToLesson": "Derse dön",
+    "clarifyError": "Şu anda yardım kullanılamıyor. Tekrar deneyin veya ders sayfasından devam edin.",
+    "emptyDeck": "Bu ders için henüz sınıf slaytı yok."
   }
 }

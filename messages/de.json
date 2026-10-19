@@ -1963,5 +1963,52 @@
     "label": "Wartung",
     "title": "Wartungsarbeiten",
     "description": "Dieser Bereich ist wegen Wartungsarbeiten vorübergehend nicht verfügbar. Bitte versuche es später erneut."
+  },
+  "classroom": {
+    "entry": "Klassenzimmer mit Lingu",
+    "label": "Klassenzimmer",
+    "lectureLabel": "Vortrag",
+    "progress": "Abschnitt {current} von {total}",
+    "exit": "Klassenzimmer verlassen",
+    "narrationHint": "Hör zu und fahre fort, wenn du bereit bist.",
+    "lectureHint": "Starte den Vortrag, pausiere jederzeit oder springe zwischen Teilen.",
+    "playLecture": "Vortrag starten",
+    "pause": "Pause",
+    "preparing": "Vollständiger Vortrag wird vorbereitet… Du kannst inzwischen die Lesefassung nutzen.",
+    "helpTitle": "Ich verstehe das nicht",
+    "helpNote": "Lingu erklärt",
+    "repeat": "Wiederholen",
+    "actions": {
+      "rephrase": "Anders formulieren",
+      "more_examples": "Mehr Beispiele"
+    },
+    "kinds": {
+      "intro": "Einführung",
+      "explanation": "Erklärung",
+      "key_point": "Kernpunkt",
+      "example": "Beispiel",
+      "vocabulary": "Wortschatz",
+      "closing": "Bereit"
+    },
+    "segmentKinds": {
+      "hook": "Einstieg",
+      "concept": "Konzept",
+      "example_walkthrough": "Beispiel",
+      "contrast": "Vergleich",
+      "vocab_spotlight": "Wortschatz",
+      "cfu": "Check",
+      "summary": "Zusammenfassung",
+      "handoff": "Bereit"
+    },
+    "margin": "Notizen",
+    "marginEmpty": "Hier erscheinen Notizen, während Lingu unterrichtet.",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "toExercises": "Weiter zu den Übungen",
+    "loadError": "Das Klassenzimmer konnte nicht geöffnet werden.",
+    "retry": "Erneut versuchen",
+    "backToLesson": "Zurück zur Lektion",
+    "clarifyError": "Die Hilfe ist derzeit nicht verfügbar. Versuche es erneut oder fahre auf der Lektionsseite fort.",
+    "emptyDeck": "Für diese Lektion gibt es noch keine Klassenzimmer-Folien."
   }
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { Check, Diff, X } from 'lucide-react'
@@ -13,6 +13,7 @@ import { getGrammarTopics, type GrammarTopic } from '@/data/grammar'
 import { AudioPlayer } from '@/components/ui/AudioPlayer'
 import { VoiceRecorder } from '@/components/ui/VoiceRecorder'
 import { ConfirmDialog } from '@/components/ui/confirm-dialog'
+import { LessonClassroomEntry } from '@/components/lesson/LessonClassroomEntry'
 import { LessonVoicePracticeButton } from '@/components/lesson/LessonVoicePracticeButton'
 import { WordTooltip, useWordSave } from '@/components/ui/WordTooltip'
 import { PageLoading } from '@/components/ui/page-loading'
@@ -88,6 +89,7 @@ export default function LessonPage() {
   const locale = useLocale()
   const params = useParams()
   const router = useRouter()
+  const searchParams = useSearchParams()
   const id = params.id as string
   const completeLesson = useProgressStore((s) => s.completeLesson)
   const activeLanguage = useLanguageStore((s) => s.activeLanguage)
@@ -189,6 +191,14 @@ export default function LessonPage() {
   useEffect(() => {
     loadLesson()
   }, [loadLesson])
+
+  useEffect(() => {
+    if (loading || !lesson || searchParams.get('focus') !== 'exercises') return
+    document.getElementById('lesson-exercises')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }, [loading, lesson, searchParams, exercises.length])
 
   const generateNativeExplanation = async () => {
     setLoadingNativeExplanation(true)
@@ -583,6 +593,7 @@ export default function LessonPage() {
             targetLanguage={lessonTargetLanguage}
           />
         )}
+        {lesson && <LessonClassroomEntry lessonId={lesson.id} />}
         {/* Lesson header */}
         <div className="border-fl-border bg-fl-surface border">
           <div className="border-fl-border flex items-center justify-between border-b px-6 py-4">
@@ -855,7 +866,10 @@ export default function LessonPage() {
 
         {/* Exercise */}
         {exercise && (
-          <div className="border-fl-border bg-fl-surface border">
+          <div
+            id="lesson-exercises"
+            className="border-fl-border bg-fl-surface border"
+          >
             <div className="border-fl-border flex flex-wrap items-center justify-between gap-3 border-b px-6 py-4">
               <div className="flex items-center gap-2">
                 <span className="text-fl-label text-fl-muted-2">●</span>

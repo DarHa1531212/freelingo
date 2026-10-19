@@ -1963,5 +1963,52 @@
     "label": "Huolto",
     "title": "Huolto käynnissä",
     "description": "Tämä osio on väliaikaisesti poissa käytöstä huollon vuoksi. Palaa myöhemmin."
+  },
+  "classroom": {
+    "entry": "Luokkahuone Lingun kanssa",
+    "label": "Luokkahuone",
+    "lectureLabel": "Lecture",
+    "progress": "Vaihe {current}/{total}",
+    "exit": "Poistu luokkahuoneesta",
+    "narrationHint": "Kuuntele ja jatka, kun olet valmis.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "En ymmärrä",
+    "helpNote": "Lingu selittää",
+    "repeat": "Toista",
+    "actions": {
+      "rephrase": "Muotoile uudelleen",
+      "more_examples": "Lisää esimerkkejä"
+    },
+    "kinds": {
+      "intro": "Johdanto",
+      "explanation": "Selitys",
+      "key_point": "Keskeinen asia",
+      "example": "Esimerkki",
+      "vocabulary": "Sanasto",
+      "closing": "Valmis"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Muistiinpanot",
+    "marginEmpty": "Muistiinpanot näkyvät täällä, kun Lingu tekee merkintöjä.",
+    "previous": "Edellinen",
+    "next": "Seuraava",
+    "toExercises": "Jatka harjoituksiin",
+    "loadError": "Luokkahuonetilaa ei voitu avata.",
+    "retry": "Yritä uudelleen",
+    "backToLesson": "Takaisin oppitunnille",
+    "clarifyError": "Apua ei ole juuri nyt saatavilla. Yritä uudelleen tai jatka oppitunnin sivulla.",
+    "emptyDeck": "Tällä oppitunnilla ei ole vielä luokkahuoneen dioja."
   }
 }

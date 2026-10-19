@@ -1963,5 +1963,52 @@
     "label": "Обслуживание",
     "title": "Техническое обслуживание",
     "description": "Этот раздел временно недоступен в связи с техническим обслуживанием. Пожалуйста, зайдите позже."
+  },
+  "classroom": {
+    "entry": "Класс с Lingu",
+    "label": "Класс",
+    "lectureLabel": "Lecture",
+    "progress": "Шаг {current} из {total}",
+    "exit": "Выйти из класса",
+    "narrationHint": "Послушайте и продолжите, когда будете готовы.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "Я не понимаю",
+    "helpNote": "Lingu объясняет",
+    "repeat": "Повторить",
+    "actions": {
+      "rephrase": "Сказать иначе",
+      "more_examples": "Больше примеров"
+    },
+    "kinds": {
+      "intro": "Введение",
+      "explanation": "Объяснение",
+      "key_point": "Главное",
+      "example": "Пример",
+      "vocabulary": "Слова",
+      "closing": "Готово"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Поля",
+    "marginEmpty": "Здесь появятся заметки Lingu с доски.",
+    "previous": "Назад",
+    "next": "Далее",
+    "toExercises": "Перейти к упражнениям",
+    "loadError": "Не удалось открыть режим класса.",
+    "retry": "Повторить",
+    "backToLesson": "Вернуться к уроку",
+    "clarifyError": "Помощь сейчас недоступна. Попробуйте снова или продолжите на странице урока.",
+    "emptyDeck": "Для этого урока пока нет слайдов в режиме класса."
   }
 }

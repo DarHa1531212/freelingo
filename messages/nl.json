@@ -1963,5 +1963,52 @@
     "label": "Onderhoud",
     "title": "In onderhoud",
     "description": "Dit gedeelte is tijdelijk niet beschikbaar vanwege onderhoud. Probeer het later opnieuw."
+  },
+  "classroom": {
+    "entry": "Lesruimte met Lingu",
+    "label": "Lesruimte",
+    "lectureLabel": "College",
+    "progress": "Stap {current} van {total}",
+    "exit": "Lesruimte verlaten",
+    "narrationHint": "Luister en ga verder wanneer je klaar bent.",
+    "lectureHint": "Speel het college af, pauzeer wanneer je wilt of spring tussen delen.",
+    "playLecture": "College starten",
+    "pause": "Pauze",
+    "preparing": "Volledig college wordt voorbereid… Je kunt ondertussen de leesversie volgen.",
+    "helpTitle": "Ik begrijp het niet",
+    "helpNote": "Lingu legt het uit",
+    "repeat": "Herhalen",
+    "actions": {
+      "rephrase": "Anders formuleren",
+      "more_examples": "Meer voorbeelden"
+    },
+    "kinds": {
+      "intro": "Inleiding",
+      "explanation": "Uitleg",
+      "key_point": "Kernpunt",
+      "example": "Voorbeeld",
+      "vocabulary": "Woordenschat",
+      "closing": "Klaar"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Voorbeeld",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Woordenschat",
+      "cfu": "Check",
+      "summary": "Samenvatting",
+      "handoff": "Klaar"
+    },
+    "margin": "Kantlijn",
+    "marginEmpty": "Notities verschijnen hier terwijl Lingu lesgeeft.",
+    "previous": "Vorige",
+    "next": "Volgende",
+    "toExercises": "Doorgaan naar oefeningen",
+    "loadError": "De lesruimte kon niet worden geopend.",
+    "retry": "Opnieuw proberen",
+    "backToLesson": "Terug naar les",
+    "clarifyError": "Hulp is nu niet beschikbaar. Probeer het opnieuw of ga verder op de lespagina.",
+    "emptyDeck": "Deze les heeft nog geen dia's voor de lesruimte."
   }
 }

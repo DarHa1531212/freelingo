@@ -1963,5 +1963,52 @@
     "label": "Întreținere",
     "title": "În mentenanță",
     "description": "Această secțiune este temporar indisponibilă pentru lucrări de întreținere. Încearcă din nou mai târziu."
+  },
+  "classroom": {
+    "entry": "Clasă cu Lingu",
+    "label": "Clasă",
+    "lectureLabel": "Lecture",
+    "progress": "Pasul {current} din {total}",
+    "exit": "Ieși din clasă",
+    "narrationHint": "Ascultă, apoi continuă când ești gata.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "Nu înțeleg",
+    "helpNote": "Lingu explică",
+    "repeat": "Repetă",
+    "actions": {
+      "rephrase": "Reformulează",
+      "more_examples": "Mai multe exemple"
+    },
+    "kinds": {
+      "intro": "Introducere",
+      "explanation": "Explicație",
+      "key_point": "Idee principală",
+      "example": "Exemplu",
+      "vocabulary": "Vocabular",
+      "closing": "Gata"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Notițe",
+    "marginEmpty": "Notele apar aici când Lingu scrie pe tablă.",
+    "previous": "Anterior",
+    "next": "Următor",
+    "toExercises": "Continuă cu exercițiile",
+    "loadError": "Nu s-a putut deschide modul clasă.",
+    "retry": "Încearcă din nou",
+    "backToLesson": "Înapoi la lecție",
+    "clarifyError": "Ajutorul nu este disponibil momentan. Încearcă din nou sau continuă pe pagina lecției.",
+    "emptyDeck": "Această lecție nu are încă diapozitive pentru modul clasă."
   }
 }

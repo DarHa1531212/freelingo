@@ -1963,5 +1963,52 @@
     "label": "Održavanje",
     "title": "Održavanje u tijeku",
     "description": "Ovaj je odjeljak privremeno nedostupan zbog održavanja. Vrati se poslije."
+  },
+  "classroom": {
+    "entry": "Učionica s Linguom",
+    "label": "Učionica",
+    "lectureLabel": "Lecture",
+    "progress": "Korak {current} od {total}",
+    "exit": "Izađi iz učionice",
+    "narrationHint": "Poslušaj, a zatim nastavi kad budeš spreman.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "Ne razumijem",
+    "helpNote": "Lingu objašnjava",
+    "repeat": "Ponovi",
+    "actions": {
+      "rephrase": "Preoblikuj",
+      "more_examples": "Još primjera"
+    },
+    "kinds": {
+      "intro": "Uvod",
+      "explanation": "Objašnjenje",
+      "key_point": "Ključna točka",
+      "example": "Primjer",
+      "vocabulary": "Vokabular",
+      "closing": "Spremno"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Margina",
+    "marginEmpty": "Bilješke će se pojaviti ovdje kada ih Lingu doda.",
+    "previous": "Prethodno",
+    "next": "Sljedeće",
+    "toExercises": "Nastavi na vježbe",
+    "loadError": "Nije moguće otvoriti način rada učionice.",
+    "retry": "Pokušaj ponovno",
+    "backToLesson": "Natrag na lekciju",
+    "clarifyError": "Pomoć trenutačno nije dostupna. Pokušaj ponovno ili nastavi na stranici lekcije.",
+    "emptyDeck": "Ova lekcija još nema slajdova za učionicu."
   }
 }

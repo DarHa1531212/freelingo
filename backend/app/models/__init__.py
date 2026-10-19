@@ -6,6 +6,7 @@ from app.models.feedback import FeedbackComment, FeedbackEntry, FeedbackReadStat
 from app.models.flashcard import Flashcard, FlashcardReviewReceipt
 from app.models.game import GameAdmission, GameRequest, GameSession
 from app.models.lesson import Exercise, Lesson
+from app.models.lesson_classroom_pack import LessonClassroomPack
 from app.models.listening import ListeningAttempt, ListeningExercise
 from app.models.llm_usage import LLMUsage
 from app.models.memory import Memory
@@ -34,6 +35,7 @@ __all__ = [
     "GameSession",
     "Exercise",
     "Lesson",
+    "LessonClassroomPack",
     "ListeningAttempt",
     "ListeningExercise",
     "LLMUsage",

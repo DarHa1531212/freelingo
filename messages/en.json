@@ -1963,5 +1963,52 @@
     "label": "Maintenance",
     "title": "Under Maintenance",
     "description": "This section is temporarily unavailable while we perform maintenance. Please check back later."
+  },
+  "classroom": {
+    "entry": "Classroom with Lingu",
+    "label": "Classroom",
+    "lectureLabel": "Lecture",
+    "progress": "Part {current} of {total}",
+    "exit": "Exit classroom",
+    "narrationHint": "Listen, then continue when ready.",
+    "lectureHint": "Play the lecture, pause anytime, or jump between parts.",
+    "playLecture": "Play lecture",
+    "pause": "Pause",
+    "preparing": "Preparing full lecture… You can follow the reading version meanwhile.",
+    "helpTitle": "I don't understand",
+    "helpNote": "Lingu explains",
+    "repeat": "Repeat",
+    "actions": {
+      "rephrase": "Rephrase",
+      "more_examples": "More examples"
+    },
+    "kinds": {
+      "intro": "Introduction",
+      "explanation": "Explanation",
+      "key_point": "Key point",
+      "example": "Example",
+      "vocabulary": "Vocabulary",
+      "closing": "Ready"
+    },
+    "segmentKinds": {
+      "hook": "Opening",
+      "concept": "Concept",
+      "example_walkthrough": "Example",
+      "contrast": "Contrast",
+      "vocab_spotlight": "Vocabulary",
+      "cfu": "Check",
+      "summary": "Summary",
+      "handoff": "Ready"
+    },
+    "margin": "Margin",
+    "marginEmpty": "Notes appear here as Lingu teaches.",
+    "previous": "Previous",
+    "next": "Next",
+    "toExercises": "Continue to exercises",
+    "loadError": "Could not open classroom mode.",
+    "retry": "Retry",
+    "backToLesson": "Back to lesson",
+    "clarifyError": "Help is unavailable right now. Try again or continue on the lesson page.",
+    "emptyDeck": "This lesson has no classroom slides yet."
   }
 }

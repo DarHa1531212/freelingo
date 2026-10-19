@@ -40,6 +40,7 @@ from app.routers import (
     games,
     grammar,
     languages,
+    lesson_classroom,
     lessons,
     listening,
     memories,
@@ -143,6 +144,7 @@ app.include_router(admin_dashboard_banner.router)
 app.include_router(assessment.router)
 app.include_router(study_plan.router)
 app.include_router(lessons.router)
+app.include_router(lesson_classroom.router)
 app.include_router(flashcards.router)
 app.include_router(grammar.router)
 app.include_router(chat.router)
